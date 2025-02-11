@@ -1,17 +1,18 @@
 const express = require("express");
-const app = express();
+const app= express();
 
-// app.get('/profile', (req, res) => {
-//     const {username,age} = req.query;
-//     console.log(username);
-//     res.send("Hello from the profile page" + " " + username + " " + age);
-// })
-
-app.get("/profile/:id/:username", (req, res) =>{
-    const {id,username} = req.params;
-    res.send(Profile page with id: ${id} & username: ${username});
+app.get("/getProfile",(req,res)=>{
+    const {username,age} = req.query;
+    res.send("Profile"+ " "+username + " "+age);
 })
-
-app.listen(3477, (req, res)=>{
-    console.log("server started");
-});
+// app.get("/profile/:username",(req,res)=>{
+//     const {username} = req.params;
+//     res.send("Hi"+ " "+username);
+// })
+app.get("/profile/:username/:age",(req,res)=>{
+        const {username,age} = req.params;
+        res.send("Hi"+ " "+username + " "+ age);
+    })
+app.listen(2345,()=>{
+    console.log("server started")
+})
